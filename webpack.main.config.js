@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const CopyPlugin = require("copy-webpack-plugin");
+
 module.exports = {
   /**
    * This is the main entry point for your application, it's the first file
@@ -11,4 +14,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.json']
   },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './src/assets',
+          to: 'assets'
+        }
+      ]
+    })
+  ]
 };
